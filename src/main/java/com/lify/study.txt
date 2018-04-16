@@ -1,0 +1,34 @@
+注解 概念
+    java提供了一种原程序中的元素关联人和信息和任何元数据的途径和方法
+
+    JDK自带的注解
+        @Override 重写
+        @Deprecated 已经不用了， 用这个注解，已经过时
+        @SuppressWarnings  忽略警告
+    常见第三方注解
+        Spring @Autowired @Service @Reponsitory
+        Mybatis @InsertProvider @UpdateProvider @Options
+    按照运行机制分
+        源码注解
+        编译时注解
+        运行时注解
+
+    自定义注解
+        使用@interface关键字定义
+        成员 以无参无异常方式生命
+            成员类型 受限，合法类型 包括原始类型，String Class Annotation Enumeration
+            如果注解只有一个成员，则成员名必须取名为value() ,在使用时可以忽略成员名和赋值号(=)
+        用default为成员指定默认值
+        元注解 @Target({ElementType.METHOD,ElementType.TYPE})// 作用域  CONSTRUCTOR FIELD LOCAL_VARIABLE METHOD PACKAGE PARAMETER TYPE
+              @Retention(RetentionPolicy.RUNTIME)  //运行机制
+              @Inherited //继承，子注解
+              @Documented //生成document的时候会生成注解的信息
+    使用注解的语法
+        @注解名(成员名1=成员值1，成员名2=成员值2)
+
+
+注解实战需求
+    1 有一张用户表，字段包括 用户id，用户名，昵称，年龄，性别，所在城市，邮箱，手机号
+    2 方便的对每个字段或字段的组合条件进行检索，并打印sql
+
+    通过注解与 反射配合 ，创建出需要的注解方案
