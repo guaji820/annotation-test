@@ -7,7 +7,8 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 public @interface Description {
-    String desc();
-    String author();
-    int age() default 18;
+//    String desc();
+//    String author();
+    String value();
+//    int age() default 18;
 }
